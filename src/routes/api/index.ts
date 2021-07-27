@@ -10,5 +10,4 @@ const apiRouter = express.Router();
 apiRouter.use("/login", loginRouter);
 
 apiRouter.use("/uploads", checkAuth, uploadRouter);
-
 export default apiRouter;

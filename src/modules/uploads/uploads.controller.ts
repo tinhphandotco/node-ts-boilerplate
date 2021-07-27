@@ -1,8 +1,8 @@
-import { Response, Request } from "express";
+import { ExRequest, ExResponse } from "express-request";
 import path from "path";
 import { filename } from "../../util/upload";
 
-const postUploadImage = (req: Request, res: Response) => {
+const postUploadImage = (req: ExRequest, res: ExResponse) : void => {
     const file = req.file;
     if (!file) {
         res.status(400).json({
@@ -15,7 +15,7 @@ const postUploadImage = (req: Request, res: Response) => {
     });
 };
 
-const getUploadImage = (req: Request, res: Response) => {
+const getUploadImage = (req: ExRequest, res: ExResponse) : void => {
     const filePath = path.join(__dirname, "../../src/uploads", req.params.filename);
     if (filePath) {
         res.sendFile(filePath);

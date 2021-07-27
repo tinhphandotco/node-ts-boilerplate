@@ -1,8 +1,8 @@
-import { Response, Request } from "express";
+import { ExRequest, ExResponse } from "express-request";
 import { generateToken } from "../../util/jwt";
 import { User } from "../users/users.model";
 
-const postLogin = (req: Request, res: Response) : void => {
+const postLogin = (req: ExRequest, res: ExResponse) : void => {
     const wrongLogin = () => {
         res.status(400).json({
             msg: "email or password does not exist"
